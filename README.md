@@ -7,7 +7,7 @@
  Set up instructions: 
 
 1) clone the repo
-2) set up your virtual environment
+2) set up your virtual environment ensuring python is version 3.11.4
 3) run the command py -m pip install -r /path/to/requirements.txt.
 4) run py manage.py makemigrations then py manage.py migrate
 5) Finally, run the server with py manage.py runserver

@@ -10,4 +10,9 @@
 2) set up your virtual environment
 3) run the command py -m pip install -r /path/to/requirements.txt.
 4) run py manage.py makemigrations then py manage.py migrate
-5) Finally, run the server with py manage.py runserver 
+5) Finally, run the server with py manage.py runserver
+
+
+How it works: 
+
+This project uses PIL, webcolors, bootstrap5, to make all the wheels turn in our application. How will be explained briefly below. 

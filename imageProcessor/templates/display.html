@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{%block content%}
+
+
+<div class="container mt-50 " style="padding-top: 50px; padding-bottom:50px; font-family:Georgia, 'Times New Roman', Times, serif;
+	"><h3>Image gallery: </h3>
+</div>
+<div class="container-md ">
+    <div class="row row-cols-1 overflow-y-auto w-100" >
+        <!-- if the images uploaded is not empty display card-->
+        {% if list_of_images  %}
+        {% for item in list_of_images %} 
+        <!-- use with to create a variable for the color circle -->
+        {% with "background-color: "|add:item.color_name|add:";" as col %}
+        <div class="col-md-4 mb-2 mb-lg-2 w-100">
+            <div class="card text-light mb-3" style="font-size:6px; ">
+                <div class="d-flex align-items-start" style="flex-direction:column;">
+                    <div class="dropdown p-0 mb-n5 "style="font-size:6px;">
+                        <div class="btn-sm btn-secondary bg-secondary dropdown-toggle"  id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Information
+                        </div>
+                          <ul class="dropdown-menu p-4 bg-secondary text-white overflow-x-hidden text-overflow-hidden" aria-labelledby="dropdownMenuButton" style="font-size: 8px; width:250px;">
+                            <a class="dropdown-item p-0 text-white" href="{{item.uploaded_image_file.url}}" style="text-overflow: hidden; word-break: break-all;"><p style="text-overflow: hidden; word-break: break-all; overflow-x:hidden;">Image name: {{item.uploaded_image_file.name|cut:"images/"}}</p></a>
+                            <p style="">hex-value: {{ item.avg_hex_value}}</p>
+                            <p style="">color: {{ item.color_name}}</p>
+                            <p style="">{{item.rgb_val|cut:"Integer"}}</p>
+                            <a class="dropdown-item p-0 text-white" href="delete/{{item.id}}">remove image</a>
+                            <a class="dropdown-item  d-flex ms-n3 text-white"href="https://www.color-hex.com/color/{{item.avg_hex_value|cut:'#'}}"style="flex-direction:row;"><div style="margin-right:5px; height:15px; width: 15px; {{col}}%;border-radius:50%;"></div> click me for more  information</a>
+                        
+                          </ul> 
+
+                    </div>
+    
+            </div>
+            <a href="{{  item.uploaded_image_file.url}}">
+                <img src="{{ item.uploaded_image_file.url }}" class="card-img-top   w-100 fluid shadow-1-strong" style="height: 200px;">
+            </a>
+        
+            </div>
+
+            </div> 
+            {% endwith %}
+            {% endfor %}
+        {% else %}
+
+        <p>No images uploaded, click home to get started! </p>
+        {% endif %}
+        </div>
+
+        </div>
+    
+
+
+ 
+{% endblock %}

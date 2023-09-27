@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+{% load bootstrap_icons %}
+{% block content %}
+
+<div class="container-fluid p-5 text-center h-100">
+    <h3>Welcome to the Image Processor</h3>
+</div>
+
+    <div class="container p-5 m-50 text-center h-100">
+    <div class="position-relative">
+    <form  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-control-sm text-center" style=" font-size: 1px;">
+         {{ form.uploaded_image_file }} 
+        </div>
+        <br>
+        <button  id="btnFetch" type="submit" class="btn btn-info m-10 btn-sm" >
+            <span>Upload Image</span>
+        </button>
+    </form>
+</div>
+
+    <div class="container p-5 m-15 text-center">
+        
+    {% endblock %}
+    </div>
+ </div>

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+	{% block content %}
+	<div class="container mt-10" style="padding-bottom: 50px; font-family:Georgia, 'Times New Roman', Times, serif;
+	"><h3>Image gallery: </h3>
+	</div>
+			<div class="container-sm mt-50">
+				<div class="row row-cols-1 row-cols-lg-3">
+						{% for item in list_of_images %}
+						{% with "background-color: "|add:item.color_name|add:";" as col %}
+						<div class="col-3">
+								<div class="card mb-3" style="color: black; max-width:20rem; max-height:12rem;">
+									<div class="row g-0">
+									  <div class="col-lg-4">
+										<a href="{{item.uploaded_image_file.url}}"><img src="{{ item.uploaded_image_file.url}}" class="img-fluid rounded-start" alt="..." style="width: 100%; height:150px;" ></a>	
+									  </div>		
+									  <div class="col-md-8"	>
+											
+										  <div class="card-body flex-column p-1 m-0 g-0 bg-light  align-items-start" style="flex-direction: column; font-size: 8px; padding-bottom:1px; max-height:12px;">
+
+											<div class="row card-title border-bottom border-dark g-0 w-100 justify-content-start align-items-center" style="text-align: left; font-size: 11px; color:black; max-height:1rem; overflow-x: hidden; overflow-y: hidden;text-overflow:ellipsis;">
+					
+												<a href="{{item.uploaded_image_file.url}}" style="text-overflow: ellipsis; word-break: break-all;"><p>Image name: {{item.uploaded_image_file.name|cut:"images/"}}</p></a>
+											</div>	
+									
+											<div class="row g-0">
+												
+											
+												<div class="col align-self-start  justify-content-start flex-shrink-0 " style="font-size:10px; display:flex; flex-direction: column; text-align: left;">
+													
+
+													<p class="card-text" style="float:left;">hex-value: {{ item.avg_hex_value}}</p>
+													<p class="card-text" style="float:left;">color: {{ item.color_name}}</p>
+													<p class="card-text" style="float:left;">{{item.rgb_val|cut:"Integer"}}</p>
+												
+												</div>
+                                                <div class="col justify-content-start align-items-center flex-grow-1 ms-auto" style="display: flex; flex-direction: column; "><a href="https://www.color-hex.com/color/{{item.avg_hex_value|cut:'#'}}"><div style=" height:15px; width: 15px; {{col}}%;border-radius:50%;"></div></a><p style="font-size: 10px;">click for more info</p>
+											  </div>
+											
+										</div>
+										 
+										</div>
+									  </div>
+									</div>		
+								  </div>
+								</div>
+						{% endwith 	%}
+						{% endfor %}
+			</div>
+		</div>
+			{% endblock%}
+

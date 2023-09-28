@@ -3,6 +3,11 @@
  A Django image processor, that allows for image-file upload, and storage and deletion. 
  The user will be able to upload a file image from the index page. Upon successful file upload, the user is redirected to a display images page where the user is able to see all of the uploads previously commited. In the image gallery displayed, there is a dropdown menu for each image with the following information: Image name, hex value, RGB value, color name, the option to remove the photo from the database, and a visual representation of the color with a link to more information about the color. 
 
+As an extra initiative the code is hosted as a web app to view for those who don't want to run the repository locally. To view this please visit:
+http://joshuaroelf.pythonanywhere.com/
+
+Note: There is an error with the static files serving on the hosted web app so the background will just display as grey. 
+
 
  Set up instructions: 
 
@@ -15,4 +20,4 @@
 
 How it works: 
 
-This project uses PIL, webcolors, bootstrap5, to make all the wheels turn in our application. How will be explained briefly below. 
+This project uses PIL, webcolors, bootstrap5, to make all the wheels turn in our application. 
